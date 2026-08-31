@@ -53,7 +53,7 @@ export default function Home() {
     <section id="hero" className="scene hero">
       <div className="hero-image parallax" style={{ transform: `translate3d(0,${scroll * .18}px,0) scale(${1 + scroll * .00008})` }} />
       <div className="hero-haze" style={{ transform: `translateY(${scroll * .35}px)` }} />
-      <img className="hero-rider-object" src="/images/rider-cutout.png" alt="" style={{ transform: `translate3d(${Math.min(0, -260 + scroll * .34)}px,${scroll * .08}px,0)` }} />
+      <div className="hero-rider-track" aria-hidden="true"><img className="hero-rider-object" src="/images/rider-cutout-v2.png" alt="" /></div>
       <img className="hero-grass-object" src="/images/steppe-foreground.png" alt="" style={{ transform: `translateY(${scroll * -.05}px) scale(1.08)` }} />
       <div className="hero-copy" style={{ transform: `translateY(${scroll * .12}px)`, opacity: Math.max(.12, 1-scroll/850) }}>
         <p className="eyebrow">МЕЖДУНАРОДНЫЙ ЦИФРОВОЙ ЦЕНТР КАЗАЧЕСТВА</p>
