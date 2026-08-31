@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { ArrowDown, ArrowUpRight, Globe2, Menu, Music2, Volume2 } from 'lucide-react';
 
 const acts = [
@@ -11,24 +11,39 @@ const acts = [
   ['09', 'Казаки сегодня', 'today'], ['10', 'Присоединиться', 'join'],
 ];
 
+function CrossedSabres() {
+  return <span className="sabres" aria-hidden="true"><svg viewBox="0 0 64 64"><path d="M12 10c4 19 15 34 35 44M52 10C48 29 37 44 17 54"/><path d="m8 12 8-4-2 9m42-5-8-4 2 9M42 50l7 7m-27-7-7 7"/></svg></span>;
+}
+
 export default function Home() {
   const [scroll, setScroll] = useState(0);
   const [menu, setMenu] = useState(false);
+  const [playing, setPlaying] = useState(false);
+  const [volume, setVolume] = useState(.45);
+  const audioRef = useRef<HTMLAudioElement>(null);
   useEffect(() => {
     const update = () => setScroll(window.scrollY);
     update(); window.addEventListener('scroll', update, { passive: true });
     return () => window.removeEventListener('scroll', update);
   }, []);
+  useEffect(() => { if (audioRef.current) audioRef.current.volume = volume; }, [volume]);
   const jump = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' }); setMenu(false);
   };
+  const toggleMusic = async () => {
+    const audio = audioRef.current; if (!audio) return;
+    if (audio.paused) { try { await audio.play(); setPlaying(true); } catch { setPlaying(false); } }
+    else { audio.pause(); setPlaying(false); }
+  };
+  const enterWorld = async () => { if (!playing) await toggleMusic(); jump('history'); };
 
   return <main>
+    <audio ref={audioRef} src="/audio/stal-i-krest.mp3" loop preload="metadata" onPlay={()=>setPlaying(true)} onPause={()=>setPlaying(false)} />
     <div className="progress" style={{ transform: `scaleX(${Math.min(1, scroll / 7500)})` }} />
     <header className="topbar">
       <button className="brand" onClick={() => jump('hero')} aria-label="К началу"><span className="brand-mark">К</span><span>КАЗАКИ<br/>ВСЕГО МИРА</span></button>
       <div className="topline" />
-      <div className="top-actions"><button>RU <span>/ EN</span></button><button className="sound" aria-label="Включить звук"><Volume2 size={16}/></button><button className="menu-button" onClick={() => setMenu(!menu)}><Menu size={18}/> ОГЛАВЛЕНИЕ</button></div>
+      <div className="top-actions"><button>RU <span>/ EN</span></button><div className="audio-control"><button className={`sound ${playing?'is-playing':''}`} onClick={toggleMusic} aria-label={playing?'Выключить музыку':'Включить музыку'}><Volume2 size={16}/><i/></button><div className="volume-pop"><span>{playing?'СТАЛЬ И КРЕСТ':'МУЗЫКА'}</span><input aria-label="Громкость" type="range" min="0" max="1" step="0.01" value={volume} onChange={e=>{const v=Number(e.target.value);setVolume(v);if(audioRef.current)audioRef.current.volume=v;}}/></div></div><button className="menu-button" onClick={() => setMenu(!menu)}><Menu size={18}/> ОГЛАВЛЕНИЕ</button></div>
     </header>
     <aside className={`chapter-menu ${menu ? 'open' : ''}`}>
       <div className="menu-label">ОГЛАВЛЕНИЕ / АКТЫ</div>
@@ -43,7 +58,7 @@ export default function Home() {
       <div className="hero-copy" style={{ transform: `translateY(${scroll * .12}px)`, opacity: Math.max(.12, 1-scroll/850) }}>
         <p className="eyebrow">МЕЖДУНАРОДНЫЙ ЦИФРОВОЙ ЦЕНТР КАЗАЧЕСТВА</p>
         <h1>КАЗАКИ<br/><em>ВСЕГО</em> МИРА</h1><p className="hero-en">COSSACKS OF THE WORLD</p>
-        <div className="hero-bottom"><p>Один народ.<br/>Одна память.<br/>Один мир.</p><button onClick={() => jump('history')}>ВОЙТИ В НАШ МИР <ArrowDown size={18}/></button></div>
+        <div className="hero-bottom"><p>Один народ.<br/>Одна память.<br/>Один мир.</p><button className="ceremonial-button" onClick={enterWorld}><CrossedSabres/><span>ВОЙТИ В НАШ МИР<small>НАЧАТЬ ИСТОРИЮ</small></span><ArrowDown size={18}/></button></div>
       </div><div className="act-stamp"><span>АКТ</span><strong>I</strong></div>
     </section>
     <nav className="act-strip" aria-label="Главы"><span>ПРОЛИСТЫВАЙТЕ ИСТОРИЮ</span>{acts.slice(0,5).map(([n,t,id])=><button key={id} onClick={()=>jump(id)}><b>{n}</b>{t}</button>)}</nav>
