@@ -11,7 +11,7 @@ const acts = [
   ['09', 'Войска и служба', 'battle'], ['10', 'Присоединиться', 'join'],
 ];
 const artists = [
-  { name:'РГД', tag:'01 / ДОН', copy:'Ритм земли. Голос поколения.', image:'/images/artist-rgd-alpha-v3.png', position:'center bottom' },
+  { name:'РГД', tag:'01 / ДОН', copy:'Ритм земли. Голос поколения.', image:'/images/artist-rgd-alpha-v2.png', position:'center bottom' },
   { name:'BELOBOKA', tag:'02 / НОВЫЙ ФОЛК', copy:'Фольклор, индустриальный звук и новая сцена.', image:'/images/artist-beloboka-alpha-v2.png', position:'center bottom' },
   { name:'YAZHEVIKA', tag:'03 / ГОЛОС', copy:'Сталь, крест и женская сила Дона.', image:'/images/artist-yazhevika-alpha-v2.png', position:'center bottom' },
 ];
@@ -133,8 +133,7 @@ const hostCollage = [
 const songTitles = ['ОЙ, ТО НЕ ВЕЧЕР','ЛЮБО, БРАТЦЫ, ЛЮБО','ЧЁРНЫЙ ВОРОН','ПО ДОНУ ГУЛЯЕТ','КОГДА МЫ БЫЛИ НА ВОЙНЕ','НЕ ДЛЯ МЕНЯ','ИЗ-ЗА ЛЕСА, КОПИЙ И МЕЧЕЙ','РАЗЛИВАЙСЯ, ТИХИЙ ДОН','ТАНЦУЙ И ПОЙ, КАЗАК ЛИХОЙ','НА ЗАРЕ КАЗАК КОНЯ ПОИЛ','ОЙ, ЗА КУБАНОМ ЗА РЕКОЙ','В СТЕПИ ШИРОКОЙ ПОД ИКАНОМ'];
 const musicFaces = [
   {src:'/images/archive-wall/archive-01.jpg',name:'ДОНСКОЙ ХОР',era:'1887',kind:'archive'},
-  {src:'/images/artist-rgd-alpha-v3.png',name:'РГД',era:'СЕЙЧАС',kind:'modern'},
-  {src:'/images/archive-wall/archive-02.jpg',name:'СТАНИЧНЫЙ АНСАМБЛЬ',era:'1904',kind:'archive'},
+  {src:'/images/artist-rgd-alpha-v2.png',name:'РГД',era:'СЕЙЧАС',kind:'modern'},
   {src:'/images/artist-beloboka-alpha-v2.png',name:'BELOBOKA',era:'СЕЙЧАС',kind:'modern'},
   {src:'/images/archive-wall/archive-03.jpg',name:'КУБАНСКИЕ ПЕВЧИЕ',era:'1912',kind:'archive'},
   {src:'/images/artist-yazhevika-alpha-v2.png',name:'YAZHEVIKA',era:'СЕЙЧАС',kind:'modern'},

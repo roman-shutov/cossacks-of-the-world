@@ -29,11 +29,11 @@
 .ceremonial-button:active .sabres img{transform:scale(1.38)}
 @keyframes sabre-orbit{to{transform:rotate(360deg)}}
 @media(max-width:800px){.ceremonial-button{min-width:min(360px,92vw)!important}.sabres{width:76px;height:76px;flex-basis:76px}.sabres img{width:72px;height:72px}}
-.artist-stage-person{filter:drop-shadow(0 18px 24px #020505aa) drop-shadow(0 0 12px #d9b16a16)!important;mask-image:linear-gradient(to bottom,#000 0 94%,transparent 100%);-webkit-mask-image:linear-gradient(to bottom,#000 0 94%,transparent 100%)}
+.artist-stage-person{filter:drop-shadow(0 18px 24px #020505aa) drop-shadow(0 0 12px #d9b16a16)!important;mask-image:linear-gradient(to bottom,#000 0 80%,#000 88%,transparent 100%);-webkit-mask-image:linear-gradient(to bottom,#000 0 80%,#000 88%,transparent 100%)}
 .artist-stage:after{content:"";position:absolute;z-index:5;left:10%;right:10%;bottom:0;height:22%;pointer-events:none;background:linear-gradient(to top,#111814d9,transparent);filter:blur(9px);opacity:.68}
 .artist-stage{border:0!important;border-radius:3px;background:#11100d!important}
 .artist-stage-bg{filter:saturate(.78) contrast(1.1) brightness(.58) blur(1.5px)!important}
-.artist-stage-person{mix-blend-mode:screen!important;mask-image:radial-gradient(ellipse 68% 76% at 52% 48%,#000 0 72%,#000c 82%,transparent 100%),linear-gradient(to bottom,#000 0 88%,transparent 100%)!important;-webkit-mask-image:radial-gradient(ellipse 68% 76% at 52% 48%,#000 0 72%,#000c 82%,transparent 100%),linear-gradient(to bottom,#000 0 88%,transparent 100%)!important;mask-composite:intersect;-webkit-mask-composite:source-in}
+.artist-stage-person{mix-blend-mode:normal!important;mask-image:linear-gradient(to bottom,#000 0 80%,#000 88%,transparent 100%)!important;-webkit-mask-image:linear-gradient(to bottom,#000 0 80%,#000 88%,transparent 100%)!important}
 .artist-backdrop-title{position:absolute;z-index:1;left:3%;top:6%;font:700 clamp(130px,20vw,330px)/.8 Arial;color:#e7c98b0c;letter-spacing:-.08em;white-space:nowrap;transition:transform .2s ease-out;pointer-events:none}
 .artist-stage-copy{left:4vw!important;bottom:8vh!important;padding:22px 26px 20px;max-width:520px!important;background:linear-gradient(90deg,#080908b8,#08090872 72%,transparent);backdrop-filter:blur(10px);border-left:1px solid #d2aa6666;text-shadow:0 2px 18px #000}
 .artist-stage-copy h3{font-size:clamp(58px,8vw,126px)!important}
