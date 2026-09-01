@@ -250,3 +250,78 @@
 .brand-mark{width:42px!important;height:54px!important;border:0!important;border-radius:0!important;overflow:hidden;background:transparent!important}.brand-mark img{display:block;width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 3px 8px #000)}footer .brand-mark{width:54px!important;height:70px!important}
 @media(prefers-reduced-motion:reduce){.battle-images,.battle-copy{transform:none!important}.battle-images img{transition:opacity .5s;transform:none!important}}
 .living-culture{min-height:0!important}
+
+/* Wide-screen repair: a clean header, seamless history and grounded artist portraits. */
+.topbar{
+  background:linear-gradient(180deg,#070a0cf7 0%,#070a0ced 72%,#070a0cdb 100%)!important;
+  backdrop-filter:none!important;
+  -webkit-backdrop-filter:none!important;
+}
+.brand-mark{overflow:visible!important;isolation:isolate}
+.brand-mark img{
+  filter:none!important;
+  opacity:1!important;
+  mix-blend-mode:normal!important;
+  transform:none!important;
+}
+
+.history-scene{min-height:100svh!important;scroll-margin-top:84px}
+.history-bg{
+  inset:-10%!important;
+  animation:history-pan-clean 26s ease-in-out infinite alternate!important;
+  will-change:transform,background-position;
+}
+.history-woman-depth,.history-rider-depth{display:none!important}
+.history-atmosphere{
+  position:absolute;
+  z-index:2;
+  inset:-8%;
+  pointer-events:none;
+  background:
+    radial-gradient(ellipse at 77% 49%,#d5bd8d20 0%,transparent 34%),
+    radial-gradient(ellipse at 28% 64%,transparent 0 24%,#0506075c 66%),
+    linear-gradient(90deg,#05060770 0%,transparent 45%,#05060722 76%,#05060761 100%);
+  filter:blur(14px);
+  opacity:.82;
+  will-change:transform;
+}
+.history-scene:after{
+  inset:auto -12% -14%!important;
+  height:48%!important;
+  background:linear-gradient(180deg,transparent,#75644b1f 48%,#0506079a)!important;
+  filter:blur(30px)!important;
+}
+@keyframes history-pan-clean{from{background-position:49% center}to{background-position:52% 49%}}
+
+.living-culture{
+  padding-top:max(120px,12vh)!important;
+  scroll-margin-top:84px;
+}
+.living-heading h2{margin:2.5vh 0 2vh!important}
+.artist-stage{
+  height:clamp(640px,72vh,820px)!important;
+  min-height:640px!important;
+  margin-top:5vh!important;
+}
+.artist-stage-person{
+  inset:auto 4% -3%!important;
+  width:92%!important;
+  height:94%!important;
+  object-position:center bottom!important;
+  transform-origin:center bottom!important;
+}
+.artist-tabs{position:absolute!important;left:auto!important;right:24px!important;top:auto!important;bottom:24px!important;width:auto!important}
+@media(min-width:1600px) and (min-aspect-ratio:16/9){
+  .living-culture{padding-left:max(6vw,calc((100vw - 1760px)/2 + 70px))!important;padding-right:max(6vw,calc((100vw - 1760px)/2 + 70px))!important}
+  .living-heading{max-width:780px}
+  .artist-stage{height:clamp(650px,70vh,800px)!important;margin-top:4vh!important}
+  .artist-stage-person{inset:auto 5% -5%!important;width:90%!important;height:92%!important}
+}
+@media(max-width:900px){
+  .history-scene{scroll-margin-top:66px}
+  .living-culture{padding-top:11vh!important;scroll-margin-top:66px}
+  .artist-stage{height:78svh!important;min-height:680px!important}
+  .artist-stage-person{inset:auto -4% -2%!important;width:108%!important;height:92%!important}
+  .artist-tabs{left:20px!important;right:20px!important;bottom:20px!important;width:auto!important}
+}
+@media(prefers-reduced-motion:reduce){.history-bg{animation:none!important}.history-atmosphere{transform:none!important}}

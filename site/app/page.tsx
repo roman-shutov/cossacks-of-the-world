@@ -289,8 +289,7 @@ export default function Home() {
 
     <section id="history" className="scene history-scene">
       <div className="history-bg parallax" style={{ transform: `translateY(${Math.max(-120,(scroll-850)*.08)}px) scale(1.08)` }}/>
-      <div className="history-woman-depth" style={{transform:`translate3d(${Math.max(-8,Math.min(8,(scroll-850)*-.012))}px,${Math.max(-7,Math.min(7,(scroll-850)*-.008))}px,0) scale(1.085)`}}/>
-      <div className="history-rider-depth" style={{transform:`translate3d(${Math.max(0,Math.min(28,(scroll-850)*.024))}px,${Math.max(-4,Math.min(16,(scroll-850)*.014))}px,0) scale(${Math.max(.97,1-(scroll-850)*.000035)})`}}/>
+      <div className="history-atmosphere" style={{transform:`translate3d(${Math.max(-18,Math.min(18,(scroll-850)*-.012))}px,${Math.max(-10,Math.min(10,(scroll-850)*.007))}px,0) scale(1.04)`}}/>
       <div className="storm-flash" aria-hidden="true"/>
       <div className="paper paper-one" style={{ transform:`translate3d(0,${(scroll-1000)*-.035}px,0) rotate(-6deg)` }}>1919<br/><small>Письмо домой</small></div>
       <div className="paper paper-two" style={{ transform:`translate3d(0,${(scroll-1000)*.055}px,0) rotate(4deg)` }}>РОСТОВЪ<br/><small>Архив семьи</small></div>
