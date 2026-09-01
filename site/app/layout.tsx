@@ -4,7 +4,7 @@ import './globals.css';
 export const metadata: Metadata = {
   title: 'Казаки всего мира — Cossacks of the World',
   description: 'Международный цифровой центр казачества: история, люди, культура, музыка и память рода.',
-  icons: { icon: '/favicon.svg', shortcut: '/favicon.svg' },
+  icons: { icon: '/favicon.png', shortcut: '/favicon.png', apple: '/favicon.png' },
 };
 
 export default function RootLayout({
