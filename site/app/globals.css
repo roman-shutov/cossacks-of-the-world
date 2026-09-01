@@ -32,3 +32,38 @@
 .artist-stage-person{filter:drop-shadow(0 18px 24px #020505aa) drop-shadow(0 0 12px #d9b16a16)!important;mask-image:linear-gradient(to bottom,#000 0 94%,transparent 100%);-webkit-mask-image:linear-gradient(to bottom,#000 0 94%,transparent 100%)}
 .artist-stage:after{content:"";position:absolute;z-index:5;left:10%;right:10%;bottom:0;height:22%;pointer-events:none;background:linear-gradient(to top,#111814d9,transparent);filter:blur(9px);opacity:.68}
 .soon-overlay{position:fixed;z-index:1000;inset:0;display:grid;place-items:center;padding:24px;background:#020506d9;backdrop-filter:blur(14px);animation:soon-fade .28s ease-out}.soon-dialog{position:relative;width:min(620px,92vw);padding:58px 64px 48px;text-align:center;background:radial-gradient(circle at 50% 0,#a5522b26,transparent 44%),linear-gradient(145deg,#15181a,#090b0c);border:1px solid #d6aa6855;box-shadow:0 40px 120px #000,0 0 70px #b65e2c22;animation:soon-rise .42s cubic-bezier(.18,.9,.2,1)}.soon-dialog:before,.soon-dialog:after{content:"";position:absolute;width:46px;height:46px;border-color:#d6aa6877}.soon-dialog:before{left:12px;top:12px;border-left:1px solid;border-top:1px solid}.soon-dialog:after{right:12px;bottom:12px;border-right:1px solid;border-bottom:1px solid}.soon-emblem{width:62px;height:62px;margin:0 auto 22px;display:grid;place-items:center;border:1px solid #d6aa68;border-radius:50%;color:#d6aa68;font:32px Georgia;box-shadow:0 0 30px #d6aa6822}.soon-dialog .chapter{color:#d6aa68}.soon-dialog h2{margin:10px 0 18px;font:italic clamp(64px,10vw,112px)/.85 Georgia;color:#f3eee6}.soon-dialog>p:not(.chapter){max-width:470px;margin:0 auto;color:#d8d3ca;font:19px/1.55 Georgia}.soon-dialog strong{display:block;margin:28px 0;color:#d6aa68;font:13px/1.2 Arial;letter-spacing:.22em}.soon-dialog button{min-width:150px;padding:16px 32px;border:1px solid #d6aa68;background:#a34628;color:#fff;font:11px Arial;letter-spacing:.25em;cursor:pointer;transition:.25s}.soon-dialog button:hover{transform:translateY(-3px);background:#bd5834;box-shadow:0 14px 36px #0008,0 0 28px #b65e2c44}.soon-dialog button:focus-visible{outline:2px solid #f0cf92;outline-offset:4px}@keyframes soon-fade{from{opacity:0}}@keyframes soon-rise{from{opacity:0;transform:translateY(30px) scale(.96)}}@media(max-width:600px){.soon-dialog{padding:46px 24px 38px}.soon-dialog>p:not(.chapter){font-size:17px}}
+
+/* Keep the diaspora index readable and every route from the Don inside the globe. */
+.world-list{max-width:76vw;justify-content:flex-end;flex-wrap:wrap;gap:10px 22px;line-height:1.6}
+.globe-map-overlay{overflow:hidden}
+
+/* Genealogy is one continuous parallax plane: tree, lamp, links and portraits. */
+.genealogy-scene{min-height:130vh!important;background:#080705!important}
+.genealogy-object{inset:-5% -4% -5% -4%!important;width:108%!important;height:110%!important;transform-origin:68% 48%!important;overflow:hidden}
+.genealogy-tree{inset:0!important;width:100%!important;height:100%!important;object-fit:cover!important;object-position:center center!important;filter:contrast(1.09) brightness(.76) saturate(.86) drop-shadow(0 34px 70px #000b)!important}
+.genealogy-object .tree-lamp{z-index:7;right:3.8%;bottom:9%;width:16vw;height:25vh;opacity:.58;mix-blend-mode:screen;background:radial-gradient(circle at 55% 58%,#fff2a4 0 2%,#ffc34fbb 4%,#ff8b2444 17%,transparent 55%);transform-origin:55% 58%;pointer-events:none}
+.genealogy-object .tree-lamp:after{content:"";position:absolute;left:51%;top:56%;width:9%;height:12%;border-radius:50% 50% 35% 35%;background:linear-gradient(#ffd67c,#8d4a1d);box-shadow:0 0 18px #ffb347}
+.genealogy-scene.is-focusing .genealogy-object .tree-lamp{animation:lamp-flicker .18s infinite alternate;opacity:1}
+.genealogy-shade{z-index:4!important;background:linear-gradient(90deg,#070707f5 0%,#070707cf 23%,#07070744 48%,transparent 72%),linear-gradient(0deg,#070707d5,transparent 42%)!important}
+.genealogy-links{z-index:5!important}.genealogy-object .ancestor-node{z-index:8!important}
+@media(max-width:800px){.genealogy-object{inset:9vh -48vw -4vh -12vw!important;width:158vw!important;height:104vh!important}.genealogy-tree{object-position:62% center!important}.genealogy-object .tree-lamp{right:8%;bottom:10%;width:34vw;height:22vh}}
+
+/* The foreground wheat must blend into the field, never sweep across the riders. */
+.hero-grass-object{animation:none!important;mask-image:linear-gradient(to bottom,transparent 0 16%,#000 56% 100%);-webkit-mask-image:linear-gradient(to bottom,transparent 0 16%,#000 56% 100%)}
+
+/* True three-plane parallax for the Nation scene. All plates share registration. */
+.nation-scene{isolation:isolate}
+.nation-bg,.nation-flags-layer,.nation-people-layer{position:absolute;inset:-5%;width:110%;height:110%;object-fit:cover;object-position:center;pointer-events:none;will-change:transform;transition:transform .16s ease-out}
+.nation-bg{z-index:0;filter:saturate(.82) contrast(1.08) brightness(.7)!important}
+.nation-flags-layer{z-index:1;filter:saturate(.92) brightness(.8) drop-shadow(0 10px 18px #0007)}
+.nation-people-layer{z-index:2!important;mask-image:none!important;-webkit-mask-image:none!important;filter:saturate(.86) contrast(1.06) brightness(.76) drop-shadow(0 20px 25px #0008)!important}
+.nation-shade{z-index:3!important}.nation-copy,.nation-emblem,.nation-word{z-index:4!important}
+@media(prefers-reduced-motion:reduce){.nation-bg,.nation-flags-layer,.nation-people-layer{transform:none!important;transition:none!important}}
+
+/* Global interaction contract: controls always sit above every visual/parallax plate. */
+.hero-copy,.scene-copy,.nation-copy,.roots-copy,.culture-copy,.music-copy,.join-copy,.artist-stage-copy,.artist-tabs,.hosts-collage-heading{z-index:20!important}
+.hero-bottom,.search-box{position:relative;z-index:24!important}
+.scene button,.scene [role="button"]{position:relative;z-index:30!important;pointer-events:auto!important}
+.ceremonial-button,.cosmic-join-button{z-index:32!important}
+.hero-image,.hero-haze,.history-window,.history-echo,.history-rider-depth,.storm-flash,.history-lightning,.archive-wall,.people-vignette,.nation-bg,.nation-flags-layer,.nation-people-layer,.nation-shade,.real-globe,.genealogy-atmosphere,.genealogy-shade,.genealogy-tree,.genealogy-links,.tree-lamp,.generations-bg,.generations-shade,.music-wall,.music-wall-shade,.join-cosmic-bg,.join-cosmic-shade,.join-orbit{pointer-events:none!important}
+.genealogy-scene .genealogy-object .ancestor-node{z-index:30!important}

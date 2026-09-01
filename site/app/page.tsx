@@ -19,12 +19,30 @@ const archivePhotos = Array.from({length:30},(_,i)=>`/images/archive-wall/archiv
 const places = [
   {name:'ДОН',x:53.8,y:36.2,origin:true},
   {name:'МОСКВА',x:52.0,y:28.8},
-  {name:'СТАВРОПОЛЬ',x:55.4,y:40.1},
   {name:'КИЕВ',x:46.9,y:34.0},
-  {name:'КИТАЙ',x:77.1,y:45.4},
-  {name:'США',x:7.8,y:35.5},
-  {name:'ЧИЛИ',x:9.2,y:66.5},
-  {name:'ФРАНЦИЯ',x:36.9,y:36.9},
+  {name:'АСТАНА',x:68.0,y:34.0},
+  {name:'БИШКЕК',x:70.0,y:43.0},
+  {name:'ТАШКЕНТ',x:66.0,y:43.0},
+  {name:'ПЕКИН',x:82.0,y:45.0},
+  {name:'БЕЛГРАД',x:44.0,y:41.0},
+  {name:'СОФИЯ',x:46.0,y:43.0},
+  {name:'ПРАГА',x:42.0,y:35.0},
+  {name:'ПАРИЖ',x:36.8,y:37.0},
+  {name:'БЕРЛИН',x:41.0,y:32.0},
+  {name:'ВЕНА',x:42.0,y:38.0},
+  {name:'ВАРШАВА',x:45.0,y:32.0},
+  {name:'ХЕЛЬСИНКИ',x:44.0,y:25.0},
+  {name:'АНКАРА',x:51.0,y:43.0},
+  {name:'ЛОНДОН',x:33.0,y:33.0},
+  {name:'БРЮССЕЛЬ',x:36.0,y:35.0},
+  {name:'РИМ',x:40.0,y:43.0},
+  {name:'АФИНЫ',x:45.0,y:46.0},
+  {name:'ОТТАВА',x:9.0,y:29.0},
+  {name:'ВАШИНГТОН',x:7.8,y:39.0},
+  {name:'БУЭНОС-АЙРЕС',x:12.0,y:68.0},
+  {name:'МОНТЕВИДЕО',x:14.0,y:70.0},
+  {name:'КАНБЕРРА',x:90.0,y:70.0},
+  {name:'ВЕЛЛИНГТОН',x:92.0,y:76.0},
 ];
 const donOrigin = places[0];
 const worldRoute = (place: typeof places[number]) => {
@@ -33,10 +51,10 @@ const worldRoute = (place: typeof places[number]) => {
   return `M${donOrigin.x} ${donOrigin.y} Q${midX} ${Math.min(donOrigin.y,place.y)-lift} ${place.x} ${place.y}`;
 };
 const ancestors = [
-  {n:1,x:25,y:39,ax:34,ay:45},{n:2,x:36,y:29,ax:43,ay:41},
-  {n:3,x:48,y:23,ax:49,ay:41},{n:4,x:61,y:29,ax:57,ay:43},
-  {n:5,x:73,y:38,ax:64,ay:47},{n:27,x:79,y:49,ax:67,ay:53},
-  {n:28,x:59,y:50,ax:55,ay:57},{n:29,x:39,y:51,ax:46,ay:57},
+  {n:1,x:60,y:36,ax:61,ay:44},{n:2,x:68,y:25,ax:66,ay:40},
+  {n:3,x:76,y:18,ax:72,ay:39},{n:4,x:84,y:25,ax:77,ay:42},
+  {n:5,x:91,y:37,ax:82,ay:47},{n:27,x:90,y:52,ax:81,ay:54},
+  {n:28,x:80,y:52,ax:75,ay:57},{n:29,x:68,y:52,ax:68,ay:57},
 ];
 const hostCollage = [
   {src:'/images/hosts-collage/don.jpg',label:'ДОНСКИЕ',x:6,y:8,r:-6,w:46},
@@ -117,13 +135,13 @@ export default function Home() {
     <style>{`.generation-phrase{position:absolute;z-index:6;left:7vw;bottom:9vh;display:flex;flex-direction:column;gap:5px;padding-left:18px;border-left:1px solid #d8ae6988;font:clamp(17px,1.55vw,24px)/1.25 Georgia;perspective:700px}.generation-phrase span{display:block;width:max-content;max-width:86vw;text-shadow:0 6px 24px #000;transition:transform .18s ease-out,opacity .5s;will-change:transform}.generation-phrase .elders-line{color:#d8d0c2a8}.generation-phrase .young-line{color:#f0c982;font-style:italic}.generations-scene .culture-copy h2{margin-bottom:0}.generations-scene .culture-marquee,.generation-echo{display:none!important}`}</style>
     <style>{`.nation-bg{transition:transform .16s ease-out!important;will-change:transform}.nation-people-layer{position:absolute;z-index:2;inset:-7%;width:114%;height:114%;object-fit:cover;pointer-events:none;will-change:transform;transition:transform .13s ease-out;filter:saturate(.9) contrast(1.06) brightness(.9);mask-image:linear-gradient(to bottom,transparent 0 54%,#000 70% 100%);-webkit-mask-image:linear-gradient(to bottom,transparent 0 54%,#000 70% 100%)}.nation-shade{z-index:3!important}.nation-copy,.nation-emblem,.nation-word{z-index:4!important}`}</style>
     <style>{`.ceremonial-button{overflow:visible!important}.hero-image{background-image:linear-gradient(90deg,#05080de8 0%,#05080d55 42%,#05080d18 75%),url('/images/hero-riders-v4-no-glasses.png')!important}.living-culture,.artist-stage{background-image:none!important}.living-culture:before{background:linear-gradient(90deg,#050708d9 0%,#10151273 44%,#050708b8 100%)!important;background-size:100% 100%!important}.artist-stage:after{top:auto!important;background-image:linear-gradient(to top,#111814d9,transparent)!important}
-    .globe-routes{position:absolute;z-index:2;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none}.globe-routes path{fill:none;stroke:#ffd18a99;stroke-width:.2;stroke-dasharray:1.2 1.8;filter:drop-shadow(0 0 1.2px #ffb85c);animation:route-flow 7s linear infinite}.route-pulse{fill:#ffe0a0;filter:drop-shadow(0 0 2px #ff9b45)}.world-dot{display:block!important;transform:translate(-50%,-50%)}.world-dot span{position:absolute;left:15px;top:-8px;padding:5px 8px;border:1px solid #ffd18a55;background:#061013e8;color:#ffe1a9;white-space:nowrap;font:7px Arial;letter-spacing:.14em;opacity:0;transform:translateX(-5px);transition:.35s;pointer-events:none}.world-dot:before{content:"";position:absolute;left:8px;top:4px;width:9px;height:1px;background:#ffd18a88;transform-origin:left}.world-dot:hover span,.world-dot.origin span{opacity:1;transform:none}.world-dot:hover{scale:1.65!important}.world-dot.origin{width:13px;height:13px;background:#fff0b9;box-shadow:0 0 10px #fff0b9,0 0 34px #ff8c42,0 0 65px #ff8c4266}.world-dot.origin:after{content:"";position:absolute;inset:-9px;border:1px solid #ffd18a88;border-radius:50%;animation:don-wave 2.2s ease-out infinite}@keyframes route-flow{to{stroke-dashoffset:-30}}@keyframes don-wave{to{transform:scale(2.1);opacity:0}}
+    .globe-routes{position:absolute;z-index:2;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none}.globe-routes>g>path{fill:none;stroke:#ffd18a88;stroke-width:.16;stroke-dasharray:1.1 1.7;filter:drop-shadow(0 0 1.1px #ffb85c);animation:route-flow 7s linear infinite}.route-pulse{fill:#ffe0a0;filter:drop-shadow(0 0 2px #ff9b45)}.world-dot{display:block!important;transform:translate(-50%,-50%)}.world-dot span{position:absolute;left:13px;top:-8px;padding:5px 8px;border:1px solid #ffd18a55;background:#061013e8;color:#ffe1a9;white-space:nowrap;font:7px Arial;letter-spacing:.14em;opacity:0;transform:translateX(-5px);transition:.35s;pointer-events:none}.world-dot:before{content:"";position:absolute;left:7px;top:4px;width:8px;height:1px;background:#ffd18a88;transform-origin:left}.world-dot:hover span,.world-dot.origin span{opacity:1;transform:none}.world-dot:hover{scale:1.55!important;z-index:12}.world-dot.origin{width:13px;height:13px;background:#fff0b9;box-shadow:0 0 10px #fff0b9,0 0 34px #ff8c42,0 0 65px #ff8c4266}.world-dot.origin:after{content:"";position:absolute;inset:-9px;border:1px solid #ffd18a88;border-radius:50%;animation:don-wave 2.2s ease-out infinite}@keyframes route-flow{to{stroke-dashoffset:-30}}@keyframes don-wave{to{transform:scale(2.1);opacity:0}}
     .genealogy-scene{min-height:145vh!important;background:radial-gradient(circle at 69% 48%,#34281b 0,#15110c 34%,#070706 76%)!important}.genealogy-atmosphere{position:absolute;inset:0;background:radial-gradient(ellipse at 68% 75%,#bd783b25,transparent 48%);filter:blur(18px)}.genealogy-object{position:absolute;z-index:2;right:1vw;top:11vh;width:min(76vw,1120px);height:116vh;transform-origin:62% 46%;transition:transform .55s cubic-bezier(.18,.85,.2,1);will-change:transform}.genealogy-tree{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;filter:contrast(1.09) brightness(.82) drop-shadow(0 34px 70px #000b)}.genealogy-links{position:absolute;z-index:5;inset:0;width:100%;height:100%;pointer-events:none}.genealogy-links path{fill:none;stroke:#d8aa6388;stroke-width:.16;stroke-dasharray:.8 .9;filter:drop-shadow(0 0 1px #e8ba72)}.genealogy-links circle{fill:#f2cb82;filter:drop-shadow(0 0 2px #ffb860)}.genealogy-shade{z-index:3!important;pointer-events:none;background:linear-gradient(90deg,#070707ed 0%,#070707a5 28%,transparent 60%),linear-gradient(0deg,#070707c4,transparent 48%)!important}.genealogy-scene .roots-copy{z-index:8!important}.roots-hint{font:italic 15px/1.5 Georgia;color:#d7bd91aa;margin:22px 0}.genealogy-object .ancestor-node{position:absolute!important;z-index:6!important;width:76px!important;height:96px!important;padding:0!important;border:0!important;background:transparent!important;transform:translate(-50%,-50%) rotate(var(--tilt,0deg));box-shadow:none!important;transition:transform .38s cubic-bezier(.18,.9,.2,1),filter .38s!important}.portrait-frame{position:relative;display:block;width:100%;height:100%;padding:7px;background:linear-gradient(145deg,#8e6836,#e1be7a 28%,#4e3218 74%,#c99750);clip-path:polygon(6% 0,94% 0,100% 6%,100% 94%,94% 100%,6% 100%,0 94%,0 6%);box-shadow:0 16px 38px #000c,0 0 0 2px #e7c98f55 inset}.portrait-frame:before{content:"";position:absolute;inset:5px;border:1px solid #1a1008aa;pointer-events:none}.portrait-frame img{display:block;width:100%;height:100%;object-fit:cover;filter:sepia(.72) grayscale(.28) contrast(1.08);transition:filter .38s}.genealogy-object .ancestor-node:nth-of-type(odd){--tilt:-2deg}.genealogy-object .ancestor-node:nth-of-type(even){--tilt:2deg}.genealogy-object .ancestor-node:hover,.genealogy-object .ancestor-node.focused{z-index:20!important;transform:translate(-50%,-50%) scale(1.24) rotate(0)!important;filter:drop-shadow(0 20px 28px #000)}.genealogy-object .ancestor-node:hover img,.genealogy-object .ancestor-node.focused img{filter:sepia(.12) grayscale(0) contrast(1.03)}.genealogy-scene.is-focusing .tree-lamp{animation:lamp-flicker .18s infinite alternate;opacity:1}.genealogy-scene.is-focusing .genealogy-tree{filter:contrast(1.12) brightness(.9) drop-shadow(0 38px 80px #000c)}@media(max-width:800px){.genealogy-object{right:-34vw;top:20vh;width:135vw;height:100vh}.genealogy-object .ancestor-node{width:58px!important;height:74px!important}.genealogy-scene .roots-copy{top:8vh!important}.roots-hint{display:none}}`}</style>
     <audio ref={audioRef} src="/audio/stal-i-krest.mp3" loop preload="metadata" onPlay={()=>setPlaying(true)} onPause={()=>setPlaying(false)} />
     <div className="progress" style={{ transform: `scaleX(${Math.min(1, scroll / 7500)})` }} />
     <header className="topbar">
       <button className="brand" onClick={() => jump('hero')} aria-label="К началу"><span className="brand-mark">К</span><span>КАЗАКИ<br/>ВСЕГО МИРА</span></button>
-      <nav className="quick-nav" aria-label="Быстрые главы">{acts.slice(0,7).map(([n,,id])=><button key={id} onClick={()=>jump(id)}>{n}</button>)}</nav>
+      <nav className="quick-nav" aria-label="Быстрые главы">{acts.map(([n,,id])=><button key={id} onClick={()=>jump(id)}>{Number(n)}</button>)}</nav>
       <div className="topline" />
       <div className="top-actions"><button>RU <span>/ EN</span></button><button className={`sound ${playing?'is-playing':'is-muted'}`} onClick={toggleMusic} aria-label={playing?'Выключить музыку':'Включить музыку'} aria-pressed={playing} title={playing?'Музыка включена — нажмите, чтобы выключить':'Музыка выключена — нажмите, чтобы включить'}>{playing?<Volume2 size={17}/>:<VolumeX size={17}/>}<i/></button><button className="menu-button" onClick={() => setMenu(!menu)}><Menu size={18}/> ОГЛАВЛЕНИЕ</button></div>
     </header>
@@ -135,7 +153,6 @@ export default function Home() {
     <section id="hero" className="scene hero">
       <div className="hero-image parallax" style={{ transform: `translate3d(0,${scroll * .18}px,0) scale(${1 + scroll * .00008})` }} />
       <div className="hero-haze" style={{ transform: `translateY(${scroll * .35}px)` }} />
-      <img className="hero-grass-object" src="/images/steppe-foreground.png" alt="" style={{ transform: `translateY(${scroll * -.05}px) scale(1.08)` }} />
       <div className="hero-copy" style={{ transform: `translateY(${scroll * .12}px)`, opacity: Math.max(.12, 1-scroll/850) }}>
         <p className="eyebrow">МЕЖДУНАРОДНЫЙ ЦИФРОВОЙ ЦЕНТР КАЗАЧЕСТВА</p>
         <h1>КАЗАКИ<br/><em>ВСЕГО</em> МИРА</h1><p className="hero-en">COSSACKS OF THE WORLD</p>
@@ -162,8 +179,9 @@ export default function Home() {
       <div className="counter"><strong>∞</strong><span>ИСТОРИЙ<br/>ОДНОГО НАРОДА</span></div>
     </section>
     <section id="nation" className="scene nation-scene" onMouseMove={event=>{const r=event.currentTarget.getBoundingClientRect();setNationPointer({x:(event.clientX-r.left)/r.width-.5,y:(event.clientY-r.top)/r.height-.5})}} onMouseLeave={()=>setNationPointer({x:0,y:0})}>
-      <img className="nation-bg" src="/images/nation-starocherkassk.png" alt="Казаки в Старочеркасске получают благословение" style={{transform:`translate3d(${nationPointer.x*-22}px,${Math.max(-48,Math.min(48,(scroll-3000)*-.025))+nationPointer.y*-13}px,0) scale(1.12)`}}/>
-      <img className="nation-people-layer" src="/images/nation-starocherkassk.png" alt="" style={{transform:`translate3d(${nationPointer.x*18}px,${nationPointer.y*10}px,0) scale(1.125)`}}/>
+      <img className="nation-bg" src="/images/nation-background-v2.png" alt="Старочеркасский собор и донская земля" style={{transform:`translate3d(${nationPointer.x*-6}px,${Math.max(-14,Math.min(14,(scroll-3000)*-.008))+nationPointer.y*-4}px,0) scale(1.045)`}}/>
+      <img className="nation-flags-layer" src="/images/nation-flags-alpha-v2.png" alt="" style={{transform:`translate3d(${nationPointer.x*10}px,${Math.max(-22,Math.min(22,(scroll-3000)*-.013))+nationPointer.y*7}px,0) scale(1.052)`}}/>
+      <img className="nation-people-layer" src="/images/nation-people-alpha-v2.png" alt="Казаки и семьи получают благословение" style={{transform:`translate3d(${nationPointer.x*18}px,${Math.max(-30,Math.min(30,(scroll-3000)*-.018))+nationPointer.y*11}px,0) scale(1.06)`}}/>
       <div className="nation-shade"/><div className="nation-emblem"><span>☦</span><b>ВСЕВЕЛИКОЕ<br/>ВОЙСКО ДОНСКОЕ</b></div>
       <div className="nation-copy"><p className="chapter">АКТ IV / САМОИДЕНТИФИКАЦИЯ</p><h2>КАЗАКИ —<br/><i>НАРОД</i></h2><p>Не декорация. Не сословная тень. Живое сообщество поколений, памяти, веры и земли.</p><button>СЛАВА БОГУ, МЫ КАЗАКИ <ArrowUpRight size={18}/></button></div><div className="nation-word">НАРОД</div>
     </section>
@@ -178,13 +196,14 @@ export default function Home() {
           {places.map((place,i)=><i key={place.name} className={`world-dot ${place.origin?'origin':''}`} title={place.name} style={{left:`${place.x}%`,top:`${place.y}%`,animationDelay:`${i*.42}s`}}><span>{place.name}</span></i>)}
         </div>
       </div>
-      <div className="scene-copy left"><p className="chapter">АКТ V / КАЗАЧИЙ МИР</p><h2>МЫ ЖИВЁМ<br/><i>ПО ВСЕМУ МИРУ</i></h2><p className="lead">Страна → община → человек → история.<br/>Карта наполняется только подтверждёнными историями.</p><button className="outline" onClick={()=>setSoonOpen(true)}>Я КАЗАК. ДОБАВИТЬ СЕБЯ <ArrowUpRight size={18}/></button></div>
+      <div className="scene-copy left"><p className="chapter">АКТ V / КАЗАЧИЙ МИР</p><h2>МЫ ЖИВЁМ<br/><i>ПО ВСЕМУ МИРУ</i></h2><p className="lead">Дон → столица → община → семейная история.<br/>На карте — документированные центры казачьей диаспоры и потомков.</p><button className="outline" onClick={()=>setSoonOpen(true)}>Я КАЗАК. ДОБАВИТЬ СЕБЯ <ArrowUpRight size={18}/></button></div>
       <div className="world-list">{places.map(place=><span key={place.name}>{place.name}</span>)}</div>
     </section>
     <section id="roots" className={`scene genealogy-scene ${focusedAncestor!==null?'is-focusing':''}`}>
-      <div className="genealogy-atmosphere"/><div className="genealogy-shade"/><div className="tree-lamp"/>
+      <div className="genealogy-atmosphere"/><div className="genealogy-shade"/>
       <div className="genealogy-object" style={{transform:`translate3d(${focusedAncestor===null?0:(50-ancestors[focusedAncestor].x)*1.2}px,${Math.max(-62,Math.min(62,(scroll-4700)*.045))+(focusedAncestor===null?0:(44-ancestors[focusedAncestor].y)*.7)}px,0) scale(${focusedAncestor===null?1:1.1})`}}>
         <img className="genealogy-tree" src="/images/genealogy-tree-clean.png" alt="Чистое генеалогическое древо казачьих семей"/>
+        <div className="tree-lamp" aria-hidden="true"/>
         <svg className="genealogy-links" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">{ancestors.map((a,i)=><g key={`link-${a.n}`}><path d={`M${a.ax} ${a.ay} Q${(a.ax+a.x)/2} ${Math.min(a.ay,a.y)-2} ${a.x} ${a.y}`}/><circle cx={a.ax} cy={a.ay} r=".45"/><circle cx={a.x} cy={a.y} r=".32"/></g>)}</svg>
         {ancestors.map((a,i)=><button key={a.n} className={`ancestor-node ${focusedAncestor===i?'focused':''}`} style={{left:`${a.x}%`,top:`${a.y}%`}} onMouseEnter={()=>setFocusedAncestor(i)} onMouseLeave={()=>setFocusedAncestor(null)} onFocus={()=>setFocusedAncestor(i)} onBlur={()=>setFocusedAncestor(null)} aria-label={`Открыть фотографию семьи ${i+1}`}><span className="portrait-frame"><img src={`/images/archive-wall/archive-${String(a.n).padStart(2,'0')}.jpg`} alt="Фотография предка"/></span></button>)}
       </div>
