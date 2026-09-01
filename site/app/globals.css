@@ -215,6 +215,37 @@
 .hero-bottom,.search-box,.join-copy,.artist-tabs,.battle-rail,.battle-arrows{position:relative;z-index:110!important}
 .scene button,.scene [role="button"],.ceremonial-button,.cosmic-join-button{z-index:120!important;pointer-events:auto!important}
 .hero-grass-object,.nation-people-layer,.nation-flags-layer,.history-rider-depth,.generations-bg,.artist-stage-person{pointer-events:none!important}
+
+/* Nation scene: clean high-resolution people layer and independent cinematic depth. */
+.nation-bg{
+  animation:nation-background-drift 18s ease-in-out infinite alternate;
+  transform-origin:center center;
+}
+.nation-people-layer{
+  inset:auto -2.5% -2%!important;
+  width:105%!important;
+  height:auto!important;
+  object-fit:contain!important;
+  object-position:center bottom!important;
+  mix-blend-mode:normal!important;
+  filter:saturate(.98) contrast(1.035) brightness(.9)!important;
+  opacity:1!important;
+  animation:nation-people-breathe 8s ease-in-out infinite alternate;
+}
+@keyframes nation-background-drift{
+  from{translate:-.35% 0;scale:1.012}
+  to{translate:.35% -.45%;scale:1.026}
+}
+@keyframes nation-people-breathe{
+  from{translate:0 0;scale:1}
+  to{translate:0 -7px;scale:1.006}
+}
+@media(max-width:900px){
+  .nation-people-layer{width:122%!important;max-width:none;left:-11%!important;right:auto!important;bottom:-1%!important}
+}
+@media(prefers-reduced-motion:reduce){
+  .nation-bg,.nation-people-layer{animation:none!important;translate:none!important;scale:none!important}
+}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}.battle-images,.battle-copy,.artist-stage-bg,.artist-stage-person,.join-cosmic-bg,.join-memory{transform:none!important}}
 .brand-mark{width:42px!important;height:54px!important;border:0!important;border-radius:0!important;overflow:hidden;background:transparent!important}.brand-mark img{display:block;width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 3px 8px #000)}footer .brand-mark{width:54px!important;height:70px!important}
 @media(prefers-reduced-motion:reduce){.battle-images,.battle-copy{transform:none!important}.battle-images img{transition:opacity .5s;transform:none!important}}
