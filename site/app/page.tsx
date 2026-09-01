@@ -350,7 +350,6 @@ export default function Home() {
       <div className="living-heading"><p className="chapter">ЛИЦА / ГОЛОСА / ХАРАКТЕР</p><h2>НОВЫЕ ГОЛОСА<br/><i>ТРАДИЦИИ</i></h2><p>Современные исполнители продолжают казачью песенную традицию.</p></div>
       <div className={`artist-stage artist-stage-${artist}`} onMouseMove={e=>{const r=e.currentTarget.getBoundingClientRect();setPointer({x:(e.clientX-r.left)/r.width-.5,y:(e.clientY-r.top)/r.height-.5})}} onMouseLeave={()=>setPointer({x:0,y:0})}>
         <img className="artist-stage-bg" src="/images/don-steppe-parallax.png" alt="" style={{transform:`translate3d(${pointer.x*-70}px,${pointer.y*-42}px,0) scale(1.12)`}}/>
-        <div className="artist-backdrop-title" style={{transform:`translate3d(${pointer.x*-24}px,${pointer.y*-14}px,0)`}}>{artists[artist].name}</div>
         <img className="artist-stage-person active" src={artists[artist].image} alt={artists[artist].name} decoding="async" style={{objectPosition:artists[artist].position,transform:`translate3d(${pointer.x*12}px,${pointer.y*8}px,0) scale(1.01)`}}/>
         <div className="artist-stage-fog fog-back" style={{transform:`translate3d(${pointer.x*-24}px,${pointer.y*-8}px,0)`}}/><div className="artist-stage-fog fog-front" style={{transform:`translate3d(${pointer.x*36}px,${pointer.y*14}px,0)`}}/>
         <div className="artist-stage-copy"><span>{artists[artist].tag}</span><h3>{artists[artist].name}</h3><p>{artists[artist].copy}</p></div>

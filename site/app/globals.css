@@ -34,7 +34,6 @@
 .artist-stage{border:0!important;border-radius:3px;background:#11100d!important}
 .artist-stage-bg{filter:saturate(.78) contrast(1.1) brightness(.58) blur(1.5px)!important}
 .artist-stage-person{mix-blend-mode:normal!important;mask-image:linear-gradient(to bottom,#000 0 80%,#000 88%,transparent 100%)!important;-webkit-mask-image:linear-gradient(to bottom,#000 0 80%,#000 88%,transparent 100%)!important}
-.artist-backdrop-title{position:absolute;z-index:1;left:3%;top:6%;font:700 clamp(130px,20vw,330px)/.8 Arial;color:#e7c98b0c;letter-spacing:-.08em;white-space:nowrap;transition:transform .2s ease-out;pointer-events:none}
 .artist-stage-copy{left:4vw!important;bottom:8vh!important;padding:22px 26px 20px;max-width:520px!important;background:linear-gradient(90deg,#080908b8,#08090872 72%,transparent);backdrop-filter:blur(10px);border-left:1px solid #d2aa6666;text-shadow:0 2px 18px #000}
 .artist-stage-copy h3{font-size:clamp(58px,8vw,126px)!important}
 .artist-stage-1 .artist-stage-bg{filter:saturate(.68) contrast(1.06) brightness(.55) hue-rotate(-8deg) blur(2px)!important}
