@@ -184,13 +184,13 @@ export default function Home() {
   const [battleIndex, setBattleIndex] = useState(0);
   const [battlePointer, setBattlePointer] = useState({x:0,y:0});
   const audioRef = useRef<HTMLAudioElement>(null);
+  const hasStartedRef = useRef(false);
   useEffect(() => {
     const update = () => setScroll(window.scrollY);
     update(); window.addEventListener('scroll', update, { passive: true });
     return () => window.removeEventListener('scroll', update);
   }, []);
   useEffect(() => {
-    setTrackIndex(Math.floor(Math.random()*playlist.length));
     if (audioRef.current) audioRef.current.volume = .42;
   }, []);
   useEffect(() => { const timer=window.setInterval(()=>setArtist(v=>(v+1)%artists.length),6500); return()=>window.clearInterval(timer); }, []);
@@ -212,12 +212,20 @@ export default function Home() {
   };
   const toggleMusic = async () => {
     const audio = audioRef.current; if (!audio) return;
-    if (audio.paused) { try { await audio.play(); setPlaying(true); } catch { setPlaying(false); } }
+    if (audio.paused) {
+      if (!hasStartedRef.current && trackIndex !== 0) {
+        setTrackIndex(0);
+        audio.src = playlist[0].src;
+        audio.load();
+      }
+      try { await audio.play(); hasStartedRef.current = true; setPlaying(true); } catch { setPlaying(false); }
+    }
     else { audio.pause(); setPlaying(false); }
   };
   const playTrack = async (next:number, remember=true) => {
     const audio=audioRef.current; if (!audio) return;
     if (remember) setPlayHistory(history=>[...history.slice(-19),trackIndex]);
+    hasStartedRef.current = true;
     setTrackIndex(next);
     window.setTimeout(async()=>{ try { await audio.play(); setPlaying(true); } catch { setPlaying(false); } },0);
   };

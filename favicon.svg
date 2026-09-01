@@ -1,11 +1,28 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
   <defs>
-    <radialGradient id="bg" cx="38%" cy="28%" r="78%"><stop offset="0" stop-color="#20262a"/><stop offset="1" stop-color="#07090a"/></radialGradient>
-    <linearGradient id="gold" x1="12" y1="8" x2="52" y2="58"><stop stop-color="#f0d49b"/><stop offset=".46" stop-color="#c9a568"/><stop offset="1" stop-color="#8b6134"/></linearGradient>
+    <radialGradient id="bg" cx="35%" cy="28%" r="82%"><stop stop-color="#542315"/><stop offset=".58" stop-color="#21100d"/><stop offset="1" stop-color="#090807"/></radialGradient>
+    <linearGradient id="steel" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff7dc"/><stop offset=".28" stop-color="#bfc8c9"/><stop offset=".58" stop-color="#fff"/><stop offset="1" stop-color="#687174"/></linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f5d994"/><stop offset=".52" stop-color="#bd8341"/><stop offset="1" stop-color="#6d3e1d"/></linearGradient>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="1.5" stdDeviation="1.2" flood-color="#000" flood-opacity=".9"/></filter>
   </defs>
-  <circle cx="32" cy="32" r="30" fill="url(#bg)"/>
-  <circle cx="32" cy="32" r="27" fill="none" stroke="url(#gold)" stroke-width="1.5"/>
-  <circle cx="32" cy="32" r="23.5" fill="none" stroke="#c9a568" stroke-opacity=".24" stroke-width=".75"/>
-  <path d="M20 15h9v3.1l-2.5 1.2v10.3L39.2 18l-2.6-1.1V15H49v2.1l-3.1 1.5-10.7 9.6 13 16.8 3.2 1.6V49H37v-2.5l2.4-1.1-10.1-12-2.8 2.5v9.6l3 1.2V49H20v-2.3l2.7-1.2V19.3L20 18.1Z" fill="url(#gold)"/>
-  <path d="M32 5.8 33.2 9l3.2 1.2-3.2 1.2-1.2 3.2-1.2-3.2-3.2-1.2L30.8 9Z" fill="#ead09a" opacity=".9"/>
+  <circle cx="32" cy="32" r="30.5" fill="url(#bg)"/>
+  <circle cx="32" cy="32" r="28.5" fill="none" stroke="url(#gold)" stroke-width="2"/>
+  <circle cx="32" cy="32" r="25.5" fill="none" stroke="#f0c878" stroke-opacity=".18"/>
+  <!-- Exactly two crossed Cossack shashkas: blades up, handles down. -->
+  <g filter="url(#shadow)">
+    <g transform="rotate(-42 32 32)">
+      <path d="M29.4 11.2C30.3 8.5 31.2 6.7 32 5.3c.8 1.4 1.7 3.2 2.6 5.9l-.9 31.4h-3.4Z" fill="url(#steel)"/>
+      <path d="M32 7.2v34.9" fill="none" stroke="#fff" stroke-opacity=".72" stroke-width=".8"/>
+      <path d="M27.8 41.2h8.4v3.5h-8.4Z" fill="url(#gold)"/>
+      <path d="M29.2 44.2h5.6v12.1c0 2-1.2 3.1-2.8 3.1s-2.8-1.1-2.8-3.1Z" fill="#6a2f1f" stroke="#d5a45b" stroke-width="1"/>
+      <path d="M29.7 48h4.6M29.7 51h4.6M29.7 54h4.6" stroke="#e1ba72" stroke-width=".7"/>
+    </g>
+    <g transform="rotate(42 32 32)">
+      <path d="M29.4 11.2C30.3 8.5 31.2 6.7 32 5.3c.8 1.4 1.7 3.2 2.6 5.9l-.9 31.4h-3.4Z" fill="url(#steel)"/>
+      <path d="M32 7.2v34.9" fill="none" stroke="#fff" stroke-opacity=".72" stroke-width=".8"/>
+      <path d="M27.8 41.2h8.4v3.5h-8.4Z" fill="url(#gold)"/>
+      <path d="M29.2 44.2h5.6v12.1c0 2-1.2 3.1-2.8 3.1s-2.8-1.1-2.8-3.1Z" fill="#6a2f1f" stroke="#d5a45b" stroke-width="1"/>
+      <path d="M29.7 48h4.6M29.7 51h4.6M29.7 54h4.6" stroke="#e1ba72" stroke-width=".7"/>
+    </g>
+  </g>
 </svg>
