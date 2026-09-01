@@ -57,7 +57,7 @@
 @media(max-width:800px){.genealogy-object{inset:9vh -48vw -4vh -12vw!important;width:158vw!important;height:104vh!important}.genealogy-tree{object-position:62% center!important}.genealogy-object .tree-lamp{right:8%;bottom:10%;width:34vw;height:22vh}}
 
 /* The foreground wheat must blend into the field, never sweep across the riders. */
-.hero-grass-object{z-index:3!important;left:-2%!important;bottom:-7%!important;width:104%!important;height:32%!important;object-fit:cover!important;object-position:center bottom!important;animation:none!important;opacity:.94;mask-image:linear-gradient(to bottom,transparent 0 25%,#000 62% 100%);-webkit-mask-image:linear-gradient(to bottom,transparent 0 25%,#000 62% 100%)}
+.hero-grass-object{z-index:3!important;left:-2%!important;bottom:-7%!important;width:104%!important;height:52%!important;max-width:none!important;object-fit:fill!important;object-position:center bottom!important;animation:none!important;opacity:.94;mask-image:none!important;-webkit-mask-image:none!important}
 
 /* True three-plane parallax for the Nation scene. All plates share registration. */
 .nation-scene{isolation:isolate}
