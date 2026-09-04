@@ -730,6 +730,39 @@
   .artist-stage-person.artist-person-2{inset:auto auto 0 50%!important;width:89.6%!important;height:57.4%!important;translate:-50% 0!important}
 }
 
+/* Uniform artist presentation: every performer occupies the same visual frame
+   at every viewport, so switching tabs never changes the composition scale. */
+.artist-stage-person.artist-person-0,
+.artist-stage-person.artist-person-1,
+.artist-stage-person.artist-person-2{
+  inset:auto auto -2% 50%!important;
+  width:78%!important;
+  height:70%!important;
+  translate:-50% 0!important;
+  object-fit:contain!important;
+  object-position:center bottom!important;
+}
+@media(max-width:900px){
+  .artist-stage-person.artist-person-0,
+  .artist-stage-person.artist-person-1,
+  .artist-stage-person.artist-person-2{
+    inset:auto auto -2% 50%!important;
+    width:82%!important;
+    height:66%!important;
+    translate:-50% 0!important;
+  }
+}
+@media(max-width:560px){
+  .artist-stage-person.artist-person-0,
+  .artist-stage-person.artist-person-1,
+  .artist-stage-person.artist-person-2{
+    inset:auto auto -1% 50%!important;
+    width:86%!important;
+    height:60%!important;
+    translate:-50% 0!important;
+  }
+}
+
 /* Responsive safety pass: preserve the cinematic layout without clipping copy. */
 html,body{max-width:100%;overflow-x:clip}
 .scene,.topbar,footer{max-width:100vw}
