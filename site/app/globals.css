@@ -242,8 +242,317 @@
 @media(max-width:900px){
   .nation-people-layer{width:122%!important;max-width:none;left:-11%!important;right:auto!important;bottom:-1%!important}
 }
+
+/* Russian display type: wrap only at deliberate phrase boundaries, never by random letters. */
+.scene h1,.scene h2,.scene h3,.scene h4{
+  word-break:normal!important;
+  overflow-wrap:normal!important;
+  hyphens:none!important;
+}
+.generations-scene .culture-copy h2 br{display:block}
+.generations-scene .culture-copy h2,.generations-scene .culture-copy h2 i{white-space:nowrap}
+.battle-copy h3,.battle-copy h3 i,.war-copy h2{overflow-wrap:normal!important;word-break:normal!important;hyphens:none!important}
+.battle-rail{overflow-x:auto;grid-template-columns:repeat(10,minmax(104px,1fr))!important;scrollbar-width:thin}
+.battle-rail button span{white-space:normal!important;overflow-wrap:normal!important;word-break:normal!important;hyphens:none!important}
+
+/* One cinematic song background replaces the clipart wall. */
+.music-wide-bg{
+  position:absolute;
+  inset:-4%;
+  width:108%;
+  height:108%;
+  object-fit:cover;
+  object-position:center;
+  filter:saturate(.78) contrast(1.08) brightness(.72);
+  will-change:transform;
+  transition:transform .18s ease-out;
+}
+.music-scene .music-wall-shade{
+  background:linear-gradient(90deg,#050607f2 0%,#050607c9 35%,#0506073d 66%,#05060755),linear-gradient(0deg,#050607d9 0%,transparent 42%,#0506073f 100%)!important;
+}
+.music-scene .music-copy h2{gap:0!important}
+.music-scene .music-copy h2 span{display:block;white-space:nowrap!important}
+.music-scene .music-copy h2 span:first-child{font-size:.92em}
+.music-scene .music-copy h2 span:nth-child(2){font-size:.9em}
+.music-scene .music-copy h2 span:nth-child(3){font-size:.9em}
+.music-scene{height:100svh!important;min-height:700px!important;max-height:1020px!important}
+.music-scene .music-era-rail{z-index:8!important}
+.music-scene .song-river{z-index:9!important}
+
+/* Keep the final chapters compact while preserving their foreground copy. */
+.war-memory{height:100svh!important;min-height:760px!important;max-height:1040px!important}
+.war-copy{z-index:20!important}
+@media(max-width:900px){
+  .generations-scene .culture-copy h2{font-size:clamp(34px,9.2vw,64px)!important}
+  .music-scene{height:100svh!important;min-height:760px!important;max-height:none!important}
+  .music-scene .music-copy h2{font-size:clamp(38px,10vw,66px)!important;line-height:.86!important}
+  .music-scene .music-copy h2 span{white-space:nowrap!important}
+  .music-wide-bg{object-position:62% center}
+  .battle-rail{grid-template-columns:repeat(10,minmax(96px,1fr))!important}
+  .war-memory{height:auto!important;min-height:1080px!important;max-height:none!important}
+}
+
+/* Compact scene system. This final layer intentionally overrides legacy tall-screen rules. */
+@media(min-width:901px){
+  .hero,.history-scene,.people-scene,.nation-scene,.world-scene,
+  .genealogy-scene,.generations-scene,.hosts-collage-scene,.join-scene{
+    height:100svh!important;
+    min-height:680px!important;
+    max-height:1080px!important;
+  }
+  .people-scene,.nation-scene,.world-scene,.genealogy-scene,
+  .generations-scene,.hosts-collage-scene,.join-scene{overflow:hidden!important}
+
+  .history-scene{min-height:680px!important}
+  .history-scene .scene-copy.left{top:15vh!important}
+  .people-scene .scene-copy.center{top:11vh!important}
+  .nation-copy{top:15vh!important}
+  .world-scene .scene-copy.left{top:15vh!important}
+  .generations-scene .culture-copy{top:14vh!important}
+
+  .genealogy-object{
+    top:8%!important;
+    right:1vw!important;
+    width:min(72vw,1120px)!important;
+    height:88%!important;
+  }
+  .genealogy-scene .roots-copy{top:13vh!important}
+
+  .living-culture{
+    min-height:0!important;
+    height:auto!important;
+    padding:9vh 6vw 0!important;
+    overflow:hidden!important;
+  }
+  .living-heading h2{margin:2.5vh 0 1.5vh!important}
+  .artist-stage{
+    height:min(70vh,760px)!important;
+    min-height:600px!important;
+    max-height:760px!important;
+    margin-top:3vh!important;
+  }
+  .battle-chronicle{
+    height:100svh!important;
+    min-height:680px!important;
+    max-height:1080px!important;
+    margin-top:0!important;
+  }
+  .battle-copy{bottom:17vh!important}
+
+  .war-memory{height:100svh!important;min-height:680px!important;max-height:1080px!important}
+  .war-archive{top:8%!important;height:86%!important}
+  .war-copy{top:12vh!important}
+
+  .join-scene .join-copy{inset:12vh 6vw auto!important}
+  .join-scene .join-copy h2{margin:3vh 0!important;font-size:clamp(52px,6.7vw,108px)!important}
+
+  .music-scene{
+    height:clamp(680px,56.25vw,980px)!important;
+    min-height:680px!important;
+    max-height:980px!important;
+  }
+}
+
+@media(max-width:900px){
+  .hero,.history-scene,.people-scene,.nation-scene,.world-scene,
+  .genealogy-scene,.generations-scene,.hosts-collage-scene,.join-scene{
+    height:100svh!important;
+    min-height:680px!important;
+    max-height:980px!important;
+  }
+  .history-scene,.people-scene,.nation-scene,.world-scene,.genealogy-scene,
+  .generations-scene,.hosts-collage-scene,.join-scene{overflow:hidden!important}
+  .scene h2,.nation-title,.roots-copy h2,.culture-copy h2,.join-copy h2{
+    font-size:clamp(38px,11vw,72px)!important;
+    line-height:.88!important;
+  }
+  .scene-copy p,.nation-copy p,.roots-copy p,.culture-copy p,.join-copy p{
+    font-size:clamp(14px,3.6vw,18px)!important;
+    line-height:1.4!important;
+  }
+  .nation-copy .nation-title{white-space:nowrap!important;text-wrap:nowrap!important;font-size:clamp(37px,9.7vw,66px)!important}
+  .generations-scene .culture-copy h2,.generations-scene .culture-copy h2 i{white-space:normal!important;text-wrap:balance!important}
+  .genealogy-object{top:19%!important;height:78%!important}
+  .hosts-collage-scene{padding-top:78px!important;grid-template-rows:auto 1fr!important}
+  .hosts-collage-stage{height:auto!important;min-height:0!important}
+
+  .living-culture{height:auto!important;min-height:0!important;padding:82px 14px 0!important;overflow:hidden!important}
+  .artist-stage{height:calc(100svh - 92px)!important;min-height:620px!important;max-height:900px!important;margin-top:24px!important}
+  .battle-chronicle{height:100svh!important;min-height:680px!important;max-height:980px!important;margin-top:0!important}
+  .battle-copy{bottom:170px!important}
+
+  .music-scene{height:100svh!important;min-height:680px!important;max-height:980px!important}
+  .music-wide-bg{object-fit:cover!important;object-position:center!important}
+  .music-scene .music-copy{top:88px!important}
+
+  .war-memory{height:100svh!important;min-height:760px!important;max-height:980px!important}
+  .war-copy{top:86px!important;width:90vw!important}
+  .war-archive{top:46%!important;height:49%!important}
+  .join-scene .join-copy{inset:88px 5vw auto!important}
+  .join-scene .join-copy h2{margin:20px 0!important}
+}
+
+@media(max-width:520px){
+  .hero,.history-scene,.people-scene,.nation-scene,.world-scene,
+  .genealogy-scene,.generations-scene,.hosts-collage-scene,.join-scene{
+    min-height:720px!important;
+    max-height:none!important;
+  }
+  .nation-copy .nation-title{font-size:clamp(32px,9.2vw,48px)!important}
+  .world-list{display:none!important}
+  .paper{transform:scale(.72);transform-origin:center!important}
+  .artist-stage-copy h3{overflow-wrap:normal!important;word-break:normal!important;hyphens:none!important}
+  .music-scene .music-copy h2 span{white-space:normal!important;text-wrap:balance!important}
+  .war-copy h2{font-size:clamp(38px,10.6vw,58px)!important}
+}
+
+/* Definitive music scene: one responsive 16:9 canvas with copy over the artwork. */
+.artist-cursor-note{display:none!important}
+.music-scene{position:relative!important;padding:0!important;overflow:hidden!important}
+.music-scene .music-wall{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;overflow:hidden!important}
+.music-wide-bg{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;object-fit:contain!important;object-position:center!important;transform:none!important;transition:none!important}
+.music-scene .music-copy{position:absolute!important;z-index:140!important;left:5.5vw!important;right:4.5vw!important;top:9%!important;width:auto!important;max-width:none!important}
+@media(min-width:901px){
+  .music-scene{width:100%!important;height:auto!important;min-height:0!important;max-height:none!important;aspect-ratio:16/9!important}
+  .music-scene .music-copy h2{font-size:clamp(42px,5vw,92px)!important}
+  .music-scene .music-era-rail{top:auto!important;bottom:70px!important}
+}
+@media(max-width:900px){
+  .music-scene{width:100%!important;height:auto!important;min-height:0!important;max-height:none!important;aspect-ratio:16/9!important}
+  .music-scene .music-copy{left:4.5vw!important;right:4.5vw!important;top:10%!important}
+  .music-scene .music-copy h2{font-size:clamp(24px,6.4vw,54px)!important;line-height:.87!important}
+  .music-scene .music-lead{font-size:clamp(9px,1.8vw,14px)!important;max-width:48vw!important}
+  .music-scene .music-count{margin-top:1.4vh!important}
+  .music-scene .music-count strong{font-size:clamp(32px,8vw,64px)!important}
+  .music-scene .music-era-rail{display:none!important}
+  .music-scene .song-river{bottom:0!important}
+}
+
+/* Authoritative music layout: one full, uncropped generated frame. */
+.artist-cursor-note{display:none!important}
+@media(min-width:901px){
+  .music-scene{width:100%!important;height:auto!important;min-height:0!important;max-height:none!important;aspect-ratio:16/9!important}
+  .music-wide-bg{inset:0!important;width:100%!important;height:100%!important;object-fit:contain!important;object-position:center!important;transform:none!important;transition:none!important}
+  .music-scene .music-copy{top:9%!important}
+  .music-scene .music-copy h2{font-size:clamp(44px,5.2vw,96px)!important}
+  .music-scene .music-era-rail{bottom:70px!important}
+}
+@media(max-width:900px){
+  .music-scene{height:100svh!important;min-height:680px!important;max-height:900px!important;aspect-ratio:auto!important}
+  .music-wide-bg{inset:0!important;width:100%!important;height:100%!important;object-fit:cover!important;object-position:72% center!important;transform:none!important;transition:none!important}
+}
+
+/* Artist names live directly over the scene, without a boxed caption. */
+.artist-stage-copy{
+  left:4vw!important;
+  right:4vw!important;
+  bottom:10vh!important;
+  width:auto!important;
+  max-width:none!important;
+  padding:0!important;
+  background:none!important;
+  border:0!important;
+  backdrop-filter:none!important;
+  box-shadow:none!important;
+  text-shadow:0 5px 28px #000,0 2px 8px #000!important;
+  overflow:visible!important;
+}
+.artist-stage-copy h3{
+  max-width:none!important;
+  margin:12px 0 8px!important;
+  font-size:clamp(56px,8vw,126px)!important;
+  line-height:.84!important;
+  white-space:nowrap!important;
+  word-break:normal!important;
+  overflow-wrap:normal!important;
+  hyphens:none!important;
+}
+.artist-stage-copy p{max-width:min(620px,78vw)!important}
+.artist-tabs{
+  left:4vw!important;
+  right:4vw!important;
+  bottom:20px!important;
+  width:auto!important;
+  display:flex!important;
+  justify-content:flex-end;
+  overflow-x:auto!important;
+  overflow-y:visible!important;
+  padding:10px 0 6px;
+  scroll-snap-type:x proximity;
+  scrollbar-width:thin;
+}
+.artist-tabs button{
+  flex:0 0 clamp(112px,12vw,172px)!important;
+  min-width:112px!important;
+  overflow-wrap:normal!important;
+  word-break:normal!important;
+  hyphens:none!important;
+  white-space:nowrap!important;
+  scroll-snap-align:end;
+}
+@media(max-width:900px){
+  .artist-stage-copy{left:20px!important;right:20px!important;bottom:132px!important}
+  .artist-stage-copy h3{font-size:clamp(38px,11vw,68px)!important}
+  .artist-stage-copy p{max-width:88vw!important}
+  .artist-tabs{left:12px!important;right:12px!important;bottom:12px!important;justify-content:flex-start!important;display:flex!important}
+  .artist-tabs button{flex-basis:116px!important;min-width:116px!important}
+}
+
+/* The song chapter is one complete 16:9 frame on landscape screens. */
+@media(min-width:901px){
+  .music-scene{
+    width:100%!important;
+    height:auto!important;
+    min-height:0!important;
+    max-height:none!important;
+    aspect-ratio:16/9;
+  }
+  .music-wide-bg{
+    inset:0!important;
+    width:100%!important;
+    height:100%!important;
+    object-fit:cover!important;
+    object-position:center!important;
+  }
+  .music-scene .music-copy{top:10.5%!important}
+  .music-scene .music-copy h2{font-size:clamp(48px,5.65vw,104px)!important}
+  .music-scene .music-copy .music-lead{margin-top:2.2vh!important}
+  .music-scene .music-copy .music-count{margin-top:2.4vh!important}
+}
+@media(max-width:900px){
+  .music-scene{height:auto!important;min-height:680px!important;aspect-ratio:4/5}
+  .music-wide-bg{inset:0!important;width:100%!important;height:100%!important;object-fit:cover!important}
+}
 @media(prefers-reduced-motion:reduce){
   .nation-bg,.nation-people-layer{animation:none!important;translate:none!important;scale:none!important}
+}
+
+/* Final music chapter geometry: show the generated 16:9 artwork in full. */
+.artist-cursor-note{display:none!important}
+@media(min-width:901px){
+  .music-scene{
+    width:100%!important;
+    height:auto!important;
+    min-height:0!important;
+    max-height:none!important;
+    aspect-ratio:16/9!important;
+  }
+  .music-wide-bg{
+    inset:0!important;
+    width:100%!important;
+    height:100%!important;
+    object-fit:contain!important;
+    object-position:center!important;
+    transform:none!important;
+    transition:none!important;
+  }
+  .music-scene .music-copy{top:9%!important}
+  .music-scene .music-copy h2{font-size:clamp(44px,5.2vw,96px)!important}
+  .music-scene .music-era-rail{bottom:70px!important}
+}
+@media(max-width:900px){
+  .music-scene{height:100svh!important;min-height:680px!important;max-height:900px!important;aspect-ratio:auto!important}
+  .music-wide-bg{inset:0!important;width:100%!important;height:100%!important;object-fit:cover!important;object-position:72% center!important;transform:none!important}
 }
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}.battle-images,.battle-copy,.artist-stage-bg,.artist-stage-person,.join-cosmic-bg,.join-memory{transform:none!important}}
 .brand-mark{width:42px!important;height:54px!important;border:0!important;border-radius:0!important;overflow:hidden;background:transparent!important}.brand-mark img{display:block;width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 3px 8px #000)}footer .brand-mark{width:54px!important;height:70px!important}
@@ -308,6 +617,61 @@
   height:94%!important;
   object-position:center bottom!important;
   transform-origin:center bottom!important;
+  filter:drop-shadow(0 22px 30px rgba(0,0,0,.72)) saturate(.97) contrast(1.025)!important;
+}
+.artist-stage-person.artist-person-1{
+  inset:auto 1% -6%!important;
+  width:98%!important;
+  height:108%!important;
+}
+.artist-stage-person.artist-person-2{
+  inset:auto 4% -7%!important;
+  width:92%!important;
+  height:88%!important;
+  mask-image:linear-gradient(to bottom,#000 0 84%,#000 90%,transparent 100%)!important;
+  -webkit-mask-image:linear-gradient(to bottom,#000 0 84%,#000 90%,transparent 100%)!important;
+}
+
+/* Dense archive panorama: photographs occupy the complete memory scene. */
+.people-scene{background:#070809!important}
+.people-scene .archive-wall{
+  inset:-4% -2%!important;
+  display:grid!important;
+  grid-template-columns:repeat(6,minmax(0,1fr))!important;
+  grid-template-rows:repeat(3,minmax(0,1fr))!important;
+  grid-auto-flow:dense!important;
+  gap:clamp(5px,.7vw,12px)!important;
+  transform:rotate(-.45deg) scale(1.07);
+  filter:sepia(.66) grayscale(.42) contrast(1.13) brightness(.7)!important;
+  transition:transform .22s ease-out!important;
+  will-change:transform;
+}
+.people-scene .archive-wall img{
+  width:100%!important;
+  height:100%!important;
+  min-width:0!important;
+  min-height:0!important;
+  grid-column:auto!important;
+  grid-row:auto!important;
+  object-fit:cover!important;
+  border:clamp(3px,.35vw,6px) solid #c8bda7!important;
+  transition:transform .2s ease-out,filter .45s,scale .45s!important;
+  will-change:transform;
+}
+.people-scene .archive-wall img:nth-child(6n+2),
+.people-scene .archive-wall img:nth-child(6n+5){object-position:50% 24%!important}
+.people-scene .people-vignette{
+  background:linear-gradient(180deg,#050607b8 0%,#05060742 30%,#05060772 67%,#050607ed 100%),radial-gradient(ellipse at center,#05060712 14%,#050607db 100%)!important;
+}
+@media(max-width:900px){
+  .people-scene .archive-wall{
+    inset:-2% -5%!important;
+    grid-template-columns:repeat(3,minmax(0,1fr))!important;
+    grid-template-rows:repeat(6,minmax(0,1fr))!important;
+    gap:5px!important;
+    transform:rotate(-.35deg) scale(1.04)!important;
+  }
+  .artist-stage-person.artist-person-2{inset:auto -4% -7%!important;width:108%!important;height:90%!important;mask-image:linear-gradient(to bottom,#000 0 84%,#000 90%,transparent 100%)!important;-webkit-mask-image:linear-gradient(to bottom,#000 0 84%,#000 90%,transparent 100%)!important}
 }
 .artist-tabs{position:absolute!important;left:auto!important;right:24px!important;top:auto!important;bottom:24px!important;width:auto!important}
 @media(min-width:1600px) and (min-aspect-ratio:16/9){
@@ -321,9 +685,50 @@
   .living-culture{padding-top:11vh!important;scroll-margin-top:66px}
   .artist-stage{height:78svh!important;min-height:680px!important}
   .artist-stage-person{inset:auto -4% -2%!important;width:108%!important;height:92%!important}
+  .artist-stage-person.artist-person-1{inset:auto -8% -5%!important;width:116%!important;height:103%!important}
   .artist-tabs{left:20px!important;right:20px!important;bottom:20px!important;width:auto!important}
 }
 @media(prefers-reduced-motion:reduce){.history-bg{animation:none!important}.history-atmosphere{transform:none!important}}
+
+/* Artist scale: keep all three cutouts visually balanced and 30% smaller. */
+.artist-stage-person.artist-person-0{
+  inset:auto auto -3% 50%!important;
+  width:64.4%!important;
+  height:65.8%!important;
+  translate:-50% 0!important;
+}
+.artist-stage-person.artist-person-1{
+  inset:auto auto -6% 50%!important;
+  width:68.6%!important;
+  height:75.6%!important;
+  translate:-50% 0!important;
+}
+.artist-stage-person.artist-person-2{
+  inset:auto auto -7% 50%!important;
+  width:64.4%!important;
+  height:61.6%!important;
+  translate:-50% 0!important;
+}
+@media(min-width:1600px) and (min-aspect-ratio:16/9){
+  .artist-stage-person.artist-person-0,
+  .artist-stage-person.artist-person-1,
+  .artist-stage-person.artist-person-2{
+    inset:auto auto -5% 50%!important;
+    width:63%!important;
+    height:64.4%!important;
+    translate:-50% 0!important;
+  }
+}
+@media(max-width:900px){
+  .artist-stage-person.artist-person-0{inset:auto auto -2% 50%!important;width:75.6%!important;height:64.4%!important;translate:-50% 0!important}
+  .artist-stage-person.artist-person-1{inset:auto auto -5% 50%!important;width:81.2%!important;height:72.1%!important;translate:-50% 0!important}
+  .artist-stage-person.artist-person-2{inset:auto auto -7% 50%!important;width:75.6%!important;height:63%!important;translate:-50% 0!important}
+}
+@media(max-width:560px){
+  .artist-stage-person.artist-person-0,
+  .artist-stage-person.artist-person-1,
+  .artist-stage-person.artist-person-2{inset:auto auto 0 50%!important;width:89.6%!important;height:57.4%!important;translate:-50% 0!important}
+}
 
 /* Responsive safety pass: preserve the cinematic layout without clipping copy. */
 html,body{max-width:100%;overflow-x:clip}
@@ -562,4 +967,35 @@ html,body{max-width:100%;overflow-x:clip}
   .music-scene .music-wall-card:nth-child(3){left:-4%!important;right:auto!important;top:auto!important;bottom:0!important}
   .music-scene .music-wall-card:nth-child(4){left:auto!important;right:-4%!important;top:auto!important;bottom:0!important}
   .music-scene .music-era-rail{bottom:70px!important}
+}
+
+/* Final responsive composition rules: intentional Russian phrase wrapping. */
+.scene h1,.scene h2,.scene h3,.scene h4{word-break:normal!important;overflow-wrap:normal!important;hyphens:none!important}
+.generations-scene .culture-copy h2,.generations-scene .culture-copy h2 i{white-space:nowrap!important}
+.battle-copy h3,.battle-copy h3 i,.war-copy h2{word-break:normal!important;overflow-wrap:normal!important;hyphens:none!important}
+.battle-rail{overflow-x:auto!important;grid-template-columns:repeat(10,minmax(104px,1fr))!important;scrollbar-width:thin}
+.battle-rail button span{white-space:normal!important;word-break:normal!important;overflow-wrap:normal!important;hyphens:none!important}
+.war-memory{height:100svh!important;min-height:760px!important;max-height:1040px!important}.war-copy{z-index:20!important}
+
+/* Definitive music scene: one responsive 16:9 canvas with copy over the artwork. */
+.artist-cursor-note{display:none!important}
+.music-scene{position:relative!important;width:100%!important;height:min(56.25vw,calc(100svh - 84px))!important;min-height:0!important;max-height:none!important;aspect-ratio:auto!important;padding:0!important;overflow:hidden!important;background:#080706!important;scroll-margin-top:84px}
+.music-scene .music-wall{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;overflow:hidden!important}
+.music-wide-bg{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;object-fit:contain!important;object-position:center!important;filter:saturate(.78) contrast(1.08) brightness(.72);transform:none!important;transition:none!important}
+.music-scene .music-wall-shade{background:linear-gradient(90deg,#050607f2 0%,#050607c9 35%,#0506073d 66%,#05060755),linear-gradient(0deg,#050607d9 0%,transparent 42%,#0506073f 100%)!important}
+.music-scene .music-copy{position:absolute!important;z-index:140!important;left:5.5vw!important;right:4.5vw!important;top:9%!important;width:auto!important;max-width:none!important}
+.music-scene .music-copy h2{gap:0!important;font-size:clamp(42px,5vw,92px)!important;white-space:normal!important;text-wrap:wrap!important}
+.music-scene .music-copy h2 span{display:block!important;white-space:nowrap!important}
+.music-scene .music-copy h2 span:first-child{font-size:.92em}.music-scene .music-copy h2 span:nth-child(2),.music-scene .music-copy h2 span:nth-child(3){font-size:.9em}
+.music-scene .music-era-rail{z-index:8!important;top:auto!important;bottom:70px!important}.music-scene .song-river{z-index:9!important;bottom:0!important}
+@media(max-width:900px){
+  .generations-scene .culture-copy h2{font-size:clamp(34px,9.2vw,64px)!important}
+  .music-scene .music-copy{left:4.5vw!important;right:4.5vw!important;top:10%!important}
+  .music-scene .music-copy h2{font-size:clamp(24px,6.4vw,54px)!important;line-height:.87!important}
+  .music-scene .music-lead{font-size:clamp(9px,1.8vw,14px)!important;max-width:48vw!important}
+  .music-scene .music-count{margin-top:1.4vh!important}.music-scene .music-count strong{font-size:clamp(32px,8vw,64px)!important}
+  .music-scene .music-era-rail{display:none!important}
+  .music-scene{height:min(56.25vw,calc(100svh - 66px))!important;scroll-margin-top:66px}
+  .battle-rail{grid-template-columns:repeat(10,minmax(96px,1fr))!important}
+  .war-memory{height:auto!important;min-height:1080px!important;max-height:none!important}
 }
