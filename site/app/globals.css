@@ -539,3 +539,27 @@ html,body{max-width:100%;overflow-x:clip}
   .music-scene .music-copy h2{display:block;font-size:clamp(43px,11vw,72px)!important;white-space:normal;text-wrap:balance}
   .music-scene .music-copy h2 span{white-space:normal}
 }
+
+/* One complete music chapter: no empty second viewport. */
+.music-scene{
+  height:100svh!important;
+  min-height:680px!important;
+  max-height:980px;
+}
+.music-scene .music-wall{inset:0!important}
+.music-scene .music-wall-card:nth-child(1){left:-2%!important;top:0!important;width:31%!important;height:100%!important}
+.music-scene .music-wall-card:nth-child(2){left:24%!important;top:0!important;width:34%!important;height:100%!important}
+.music-scene .music-wall-card:nth-child(3){left:53%!important;top:0!important;width:28%!important;height:100%!important}
+.music-scene .music-wall-card:nth-child(4){left:auto!important;right:-2%!important;top:0!important;width:27%!important;height:100%!important}
+.music-scene .music-wall-card:nth-child(n+5){display:none!important}
+.music-scene .music-era-rail{top:auto!important;bottom:82px!important}
+.music-scene .song-river{bottom:0!important}
+@media(max-width:900px){
+  .music-scene{height:auto!important;min-height:980px!important;max-height:none}
+  .music-scene .music-wall-card:nth-child(n){width:54%!important;height:52%!important}
+  .music-scene .music-wall-card:nth-child(1){left:-4%!important;right:auto!important;top:0!important}
+  .music-scene .music-wall-card:nth-child(2){left:auto!important;right:-4%!important;top:0!important}
+  .music-scene .music-wall-card:nth-child(3){left:-4%!important;right:auto!important;top:auto!important;bottom:0!important}
+  .music-scene .music-wall-card:nth-child(4){left:auto!important;right:-4%!important;top:auto!important;bottom:0!important}
+  .music-scene .music-era-rail{bottom:70px!important}
+}
