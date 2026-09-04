@@ -483,3 +483,22 @@ html,body{max-width:100%;overflow-x:clip}
   .scene h2{font-size:clamp(42px,8.5vw,68px)!important}
   .artist-stage,.battle-chronicle{height:auto!important;min-height:680px!important}
 }
+
+/* Battle transition: controls belong to the battle image, never to the gap above it. */
+.living-culture{overflow:visible!important}
+.battle-chronicle{
+  margin-top:0!important;
+  z-index:20!important;
+}
+.battle-rail,.battle-arrows{
+  position:absolute!important;
+  z-index:130!important;
+}
+.battle-rail{top:auto!important;bottom:4vh!important}
+.battle-arrows{top:auto!important;bottom:4vh!important}
+.battle-rail button,.battle-arrows button{position:relative!important;z-index:131!important}
+@media(max-width:900px){
+  .battle-chronicle{margin-top:36px!important}
+  .battle-rail{bottom:14px!important}
+  .battle-arrows{bottom:116px!important}
+}
