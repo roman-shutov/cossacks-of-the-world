@@ -497,8 +497,11 @@ html,body{max-width:100%;overflow-x:clip}
 .battle-rail{top:auto!important;bottom:4vh!important}
 .battle-arrows{top:auto!important;bottom:4vh!important}
 .battle-rail button,.battle-arrows button{position:relative!important;z-index:131!important}
+.nation-copy{max-width:min(1100px,86vw)!important}
+.nation-copy .nation-title{font-size:clamp(64px,7vw,118px)!important;white-space:nowrap;text-wrap:nowrap}
 @media(max-width:900px){
   .battle-chronicle{margin-top:36px!important}
   .battle-rail{bottom:14px!important}
   .battle-arrows{bottom:116px!important}
+  .nation-copy .nation-title{white-space:normal;text-wrap:balance}
 }
