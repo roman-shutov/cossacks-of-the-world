@@ -505,3 +505,37 @@ html,body{max-width:100%;overflow-x:clip}
   .battle-arrows{bottom:116px!important}
   .nation-copy .nation-title{white-space:normal;text-wrap:balance}
 }
+
+/* Music manifesto is the foreground headline for the whole screen, not a card caption. */
+.music-scene .music-copy{
+  left:5.5vw!important;
+  right:4.5vw!important;
+  top:11vh!important;
+  width:auto!important;
+  max-width:none!important;
+  z-index:140!important;
+  pointer-events:none;
+}
+.music-scene .music-copy h2{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  gap:0;
+  max-width:none!important;
+  font-size:clamp(54px,6.2vw,106px)!important;
+  line-height:.88!important;
+  white-space:nowrap;
+  text-wrap:nowrap;
+  overflow-wrap:normal!important;
+}
+.music-scene .music-copy h2 span{display:block;white-space:nowrap}
+.music-scene .music-copy .music-lead,.music-scene .music-copy .music-count{pointer-events:auto}
+@media(max-width:1180px){
+  .music-scene .music-copy{left:4.5vw!important;right:4.5vw!important;width:auto!important;max-width:none!important}
+  .music-scene .music-copy h2{font-size:clamp(46px,6.1vw,72px)!important}
+}
+@media(max-width:900px){
+  .music-scene .music-copy{left:20px!important;right:35px!important;top:96px!important}
+  .music-scene .music-copy h2{display:block;font-size:clamp(43px,11vw,72px)!important;white-space:normal;text-wrap:balance}
+  .music-scene .music-copy h2 span{white-space:normal}
+}
