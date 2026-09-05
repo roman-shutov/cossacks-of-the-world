@@ -223,6 +223,16 @@ export default function Home() {
   // Navigation history must update synchronously, including rapid arrow clicks.
   const playHistoryRef = useRef<number[]>([]);
   const [artist, setArtist] = useState(0);
+  useEffect(() => {
+    // Warm the current artwork, never reuse another artist's painted image.
+    const portraits = artists.map(({ image }) => {
+      const portrait = new Image();
+      portrait.src = image;
+      void portrait.decode().catch(() => {});
+      return portrait;
+    });
+    return () => { portraits.length = 0; };
+  }, []);
   const [pointer, setPointer] = useState({x:0,y:0});
   const [peoplePointer, setPeoplePointer] = useState({x:0,y:0});
   const [soonOpen, setSoonOpen] = useState(false);
@@ -498,7 +508,7 @@ export default function Home() {
       <div className="living-heading"><p className="chapter">ЛИЦА / ГОЛОСА / ХАРАКТЕР</p><h2>НОВЫЕ ГОЛОСА<br/><i>ТРАДИЦИИ</i></h2><p>Современные исполнители продолжают казачью песенную традицию.</p></div>
       <div className={`artist-stage artist-stage-${artist}`} onMouseMove={e=>{const r=e.currentTarget.getBoundingClientRect();setPointer({x:(e.clientX-r.left)/r.width-.5,y:(e.clientY-r.top)/r.height-.5})}} onMouseLeave={()=>setPointer({x:0,y:0})}>
         <img className="artist-stage-bg" src="/images/don-steppe-parallax.png" alt="" style={{transform:`translate3d(${pointer.x*-70}px,${pointer.y*-42}px,0) scale(1.12)`}}/>
-        <figure className={`artist-portrait artist-portrait-${artist}`} style={{'--portrait-height-ratio':artists[artist].height/artists[artist].headHeight,'--portrait-width-ratio':artists[artist].width/artists[artist].headHeight,'--portrait-head-offset':artists[artist].headTop/artists[artist].headHeight} as CSSProperties}><img className={`artist-stage-person active artist-person-${artist}`} src={artists[artist].image} alt={artists[artist].name} decoding="async"/></figure>
+        <figure key={artists[artist].image} className={`artist-portrait artist-portrait-${artist}`} style={{'--portrait-height-ratio':artists[artist].height/artists[artist].headHeight,'--portrait-width-ratio':artists[artist].width/artists[artist].headHeight,'--portrait-head-offset':artists[artist].headTop/artists[artist].headHeight} as CSSProperties}><img className={`artist-stage-person active artist-person-${artist}`} src={artists[artist].image} alt={artists[artist].name} decoding="async" style={{opacity:0}} ref={image => { if (!image) return; void image.decode().then(() => { if (image.isConnected) image.style.opacity = '1'; }).catch(() => {}); }}/></figure>
         <div className="artist-stage-fog fog-back" style={{transform:`translate3d(${pointer.x*-24}px,${pointer.y*-8}px,0)`}}/><div className="artist-stage-fog fog-front" style={{transform:`translate3d(${pointer.x*36}px,${pointer.y*14}px,0)`}}/>
         <div className="artist-stage-copy"><h3>{artists[artist].name}</h3><p>{artists[artist].copy}</p></div>
         <div className="artist-tabs">{artists.map((a,i)=><button key={a.name} className={artist===i?'active':''} onClick={()=>setArtist(i)}>{a.name}</button>)}</div>

@@ -112,6 +112,8 @@ try {
       await click(`.artist-tabs button:nth-child(${artist})`); await delay(100);
       const labels = await evaluate(`({tabs:[...document.querySelectorAll('.artist-tabs button')].map(e=>e.textContent),tag:document.querySelector('.artist-stage-copy>span')?.textContent,copy:document.querySelector('.artist-stage-copy p').textContent})`);
       check(`artist-label-${width}-${artist}`, labels.tabs.every(t=>!/[0-9]/.test(t)) && !labels.tag && !labels.copy.includes('готовятся'), labels);
+      const portrait = await evaluate(`(() => {const image=document.querySelector('.artist-portrait img');return {alt:image.alt,src:image.getAttribute('src'),complete:image.complete,width:image.naturalWidth,opacity:getComputedStyle(image).opacity,count:document.querySelectorAll('.artist-portrait img').length}})()`);
+      check(`artist-artwork-${width}-${artist}`, portrait.alt===labels.tabs[artist-1] && portrait.complete && portrait.width>0 && portrait.opacity==='1' && portrait.count===1, portrait);
       fs.mkdirSync('qa-responsive', { recursive: true });
       const { data } = await call('Page.captureScreenshot', { format: 'png', captureBeyondViewport: false });
       fs.writeFileSync(`qa-responsive/artist-label-${width}-${artist}.png`, Buffer.from(data, 'base64'));
